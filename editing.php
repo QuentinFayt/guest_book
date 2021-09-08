@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/golden_book.css" rel="stylesheet">
-    <title>GoldenBook</title>
+    <title>Message editing</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         </ul>
     </nav>
     <header>
-        <h1>Lire les messages</h1>
+        <h1>Gérer les messages</h1>
     </header>
     <main>
 
