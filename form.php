@@ -12,13 +12,13 @@
 <body>
     <nav>
         <ul>
-            <Li><a href="index.php">Lire les messages</a></Li>
-            <Li><a href="form.php">Ajouter un message</a></Li>
-            <Li><a href="editing.php">Gérer les messages</a></Li>
+            <Li><a href="index.php">Read last messages</a></Li>
+            <Li><a href="form.php">Send a message</a></Li>
+            <Li><a href="editing.php">Edit messages</a></Li>
         </ul>
     </nav>
     <header>
-        <h1>Ajouter un message</h1>
+        <h1>Send a message</h1>
     </header>
     <main>
         <form method="POST" action="form.php">
