@@ -12,16 +12,34 @@
 <body>
     <nav>
         <ul>
-            <Li><a href="index.php">Lire les messages</a></Li>
-            <Li><a href="form.php">Ajouter un message</a></Li>
-            <Li><a href="editing.php">Gérer les messages</a></Li>
+            <Li><a href="index.php">Read last messages</a></Li>
+            <Li><a href="form.php">Send a message</a></Li>
+            <Li><a href="editing.php">Edit messages</a></Li>
         </ul>
     </nav>
     <header>
-        <h1>Lire les messages</h1>
+        <h1>Read last messages</h1>
     </header>
     <main>
-
+        <section class="noMsgYet">
+            <h2>This GoldenBook doesn't have any message yet!</h2>
+            <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
+        </section>
+        <section class="userMsg">
+            <h2>Last messages</h2>
+            <!-- On va boucler sur article pour chaque message présent dans la base de données plutôt que d'afficher en dur X messages-->
+            <article>
+                <!-- h3 is the title of the message with user name and email, div content is the user's message, p content is the date the message was sent-->
+                <h3>...'s message:</h3>
+                <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur qui consequuntur autem molestiae veritatis hic reprehenderit, dolor magnam et esse iure vel quisquam error quas eum sunt pariatur dicta assumenda?</div>
+                <p>written the: ...</p>
+            </article>
+            <article>
+                <h3>...'s message:</h3>
+                <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur qui consequuntur autem molestiae veritatis hic reprehenderit, dolor magnam et esse iure vel quisquam error quas eum sunt pariatur dicta assumenda?</div>
+                <p>written the: ...</p>
+            </article>
+        </section>
     </main>
     <footer>
         <hr>
