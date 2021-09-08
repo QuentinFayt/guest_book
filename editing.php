@@ -40,19 +40,19 @@
             <!-- Content rows -->
             <tr>
                 <th>1</th>
-                <th>...</th>
-                <th>...</th>
+                <th>Quentin</th>
+                <th>quentin.fayt.p@gmail.com</th>
                 <th>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur qui consequuntur autem molestiae veritatis hic reprehenderit, dolor magnam et esse iure vel quisquam error quas eum sunt pariatur dicta assumenda?</th><!-- First message in index.php -->
-                <th>...</th>
+                <th>2021-09-08 11:19:20</th>
                 <th><button>Edit</button></th>
                 <th><button>Delete</button></th>
             </tr>
             <tr>
                 <th>2</th>
-                <th>...</th>
-                <th>...</th>
+                <th>Camille</th>
+                <th>camille.fay@gmail.com</th>
                 <th>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque pariatur, est porro incidunt eligendi quo numquam expedita odio cumque beatae excepturi nesciunt voluptatibus placeat, omnis repellendus aspernatur architecto explicabo!</th> <!-- Second message in index.php -->
-                <th>...</th>
+                <th>22021-09-08 11:32:52</th>
                 <th><button>Edit</button></th>
                 <th><button>Delete</button></th>
             </tr>
