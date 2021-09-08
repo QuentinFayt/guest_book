@@ -21,7 +21,12 @@
         <h1>Ajouter un message</h1>
     </header>
     <main>
-
+        <form method="POST" action="form.php">
+            <label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo" maxlength="30" />
+            <label for="email">E-mail</label><input type="email" name="email" id="email" maxlength="50" />
+            <label for="msg">Message</label><textarea type="text" name="msg" id="msg" maxlength="1000">Your message here</textarea>
+            <input type="submit" value="Send" />
+        </form>
     </main>
     <footer>
         <hr>
