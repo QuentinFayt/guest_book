@@ -54,12 +54,13 @@ header h1 {
 .admin td {
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 1em;
 }
 .admin {
   margin: 20px auto;
 }
-.admin th {
-  height: 2em;
+.adminMain th {
+  font-size: larger;
 }
 footer {
   width: 50%;
@@ -73,4 +74,49 @@ footer p {
 main {
   width: 50%;
   margin: 0 auto;
+}
+article {
+  border: 1px solid darkgray;
+  border-radius: 0 0.5em 1em 0.5em;
+  box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
+    15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
+    25px 25px 0px 0px #e1eeff, 2px 25px 15px 27px rgba(255, 16, 221, 0);
+  margin-bottom: 3em;
+  padding: 0.5em;
+}
+article div {
+  text-align: justify;
+}
+article p {
+  text-align: right;
+}
+main h2 {
+  text-align: center;
+}
+section:first-child p {
+  text-align: center;
+}
+
+.sndMessage {
+  margin: 2em auto;
+  text-align: right;
+  width: 20%;
+}
+.sndMessage a {
+  display: block;
+  height: 64px;
+  box-shadow: 5px 5px 15px 1px #000000;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  line-height: 64px;
+  padding-right: 1em;
+  text-decoration: none;
+  color: black;
+  background-image: url("./img/fermee.png");
+  background-repeat: no-repeat;
+}
+.sndMessage a:hover {
+  box-shadow: none;
+  background-image: url("./img/ouverte.png");
+  background-repeat: no-repeat;
 }

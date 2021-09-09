@@ -23,10 +23,13 @@
     <main>
         <!-- Won't show up if there are messages in the DB  => will test this with php condition & a sql request
         (SELECT COUNT (id) FROM `message`) -->
-       <!--  <section class="noMsgYet">
+<!--         <section class="noMsgYet">
             <h2>This GoldenBook doesn't have any message yet!</h2>
             <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
         </section> -->
+        <div class="sndMessage">
+            <a href="form.php">Send a message</a>
+        </div>
         <!-- Won't show up if there are no messages in the DB -->
         <section class="userMsg">
             <h2>Last messages</h2>
