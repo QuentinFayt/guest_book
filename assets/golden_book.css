@@ -96,7 +96,6 @@ main h2 {
 section:first-child p {
   text-align: center;
 }
-
 .sndMessage {
   margin: 2em auto;
   text-align: right;
@@ -119,4 +118,41 @@ section:first-child p {
   box-shadow: none;
   background-image: url("./img/ouverte.png");
   background-repeat: no-repeat;
+}
+
+label {
+  width: 100px;
+  height: 2em;
+  line-height: 2em;
+  font-size: 1.2em;
+  display: inline-block;
+}
+.name input,
+.mail input,
+.message textarea {
+  display: inline-block;
+  width: 500px;
+}
+.message textarea {
+  height: 100px;
+  resize: none;
+}
+.message label {
+  float: left;
+}
+.name,
+.mail,
+.message,
+.submit {
+  margin: 1em;
+}
+.submit input {
+  display: block;
+  width: 95%;
+  height: 2em;
+  font-size: larger;
+}
+form {
+  width: 70%;
+  margin: 2em auto;
 }
