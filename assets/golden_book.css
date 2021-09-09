@@ -1,50 +1,76 @@
-body{
-    margin:0;
+body {
+  margin: 0;
 }
-nav{
-    background-color: lightgrey;
-    width: 50%;
-    position:sticky;
-    top: 0px;
-    margin: 0 auto;
+nav {
+  background-color: lightgrey;
+  width: 50%;
+  position: sticky;
+  top: 0px;
+  margin: 0 auto;
 }
-nav ul{
-    margin:0;
-    list-style: none;
+nav ul {
+  margin: 0;
+  list-style: none;
 }
-nav ul li{
-    display: inline-block;
-    width: 32%;
-    margin: 0 auto;
+nav ul li {
+  display: inline-block;
+  width: 32%;
+  margin: 0 auto;
 }
 nav ul li a {
-    display: block;
-    text-decoration: none;
-    color: black;
-    font-size: 1.2em;
-    padding:10px 30px;
-   text-align: center;
-   transition: 500ms 50ms;
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+  padding: 10px 30px;
+  text-align: center;
+  transition: 500ms 50ms;
 }
-nav ul li a:hover{
-    box-shadow: 5px 5px 5px black;
-    background-color: darkgray;
+nav ul li a:hover {
+  box-shadow: 5px 5px 5px black;
+  background-color: darkgray;
 }
-header{
-    background-image: url("./img/banniere.jpg");
-    background-repeat: no-repeat;
-    z-index: 0;
-    width: 1014px;
-    height: 256px;
-    margin: 0 auto;
+header {
+  background-image: url("./img/banniere.jpg");
+  background-repeat: no-repeat;
+  z-index: 0;
+  width: 1014px;
+  height: 256px;
+  margin: 0 auto;
 }
-header h1{
-    z-index: 1;
-    text-align: center;
-    color:red;
-    position: relative;
-    top:110px;
-    margin:0 auto;
-    width: 300px;
-    background-color: white;
+header h1 {
+  z-index: 1;
+  text-align: center;
+  color: red;
+  position: relative;
+  top: 110px;
+  margin: 0 auto;
+  width: 300px;
+  background-color: white;
+}
+.admin,
+.admin tr,
+.admin th,
+.admin td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.admin {
+  margin: 20px auto;
+}
+.admin th {
+  height: 2em;
+}
+footer {
+  width: 50%;
+  margin: 0 auto;
+  height: 2em;
+  border-top: 2px solid black;
+}
+footer p {
+  text-align: center;
+}
+main {
+  width: 50%;
+  margin: 0 auto;
 }
