@@ -21,9 +21,9 @@
         <h1>Edit messages</h1>
     </header>
     <main>
-        <table>
+        <table class="admin">
             <!-- Title : first row table -->
-            <tr>
+            <tr class="adminMain">
                 <th>Id</th>
                 <th>Pseudo</th>
                 <th>Email</th>
@@ -56,8 +56,6 @@
         </table>
     </main>
     <footer>
-        <hr>
-        </hr>
         <p>Réalisé par Quentin Fayt, dans le cadre de la formation Web Développeur du CF2M</p>
     </footer>
 </body>

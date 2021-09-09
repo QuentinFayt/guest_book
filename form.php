@@ -31,8 +31,6 @@
         </form>
     </main>
     <footer>
-        <hr>
-        </hr>
         <p>Réalisé par Quentin Fayt, dans le cadre de la formation Web Développeur du CF2M</p>
     </footer>
 </body>
