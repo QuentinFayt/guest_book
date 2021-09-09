@@ -24,10 +24,18 @@
         <!-- Will send the informations to the DB with a request like INSERT INTO `messages`
         VALUES (NULL,"user-name","user-email","user-message",NOW())-->
         <form method="POST" action="form.php">
-            <label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo" maxlength="30" />
-            <label for="email">E-mail</label><input type="email" name="email" id="email" maxlength="50" />
-            <label for="msg">Message</label><textarea type="text" name="msg" id="msg" maxlength="1000">Your message here</textarea>
-            <input type="submit" value="Send" />
+            <div class="name">
+                <label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo" maxlength="30"/>
+            </div>
+            <div class="mail">
+                <label for="email">E-mail</label><input type="email" name="email" id="email" maxlength="50" />
+            </div>
+            <div class="message">
+                <label for="msg">Message</label><textarea type="text" name="msg" id="msg" maxlength="1000" placeholder="Your message here"></textarea>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Send" />
+            </div>
         </form>
     </main>
     <footer>
