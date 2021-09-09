@@ -21,6 +21,8 @@
         <h1>Send a message</h1>
     </header>
     <main>
+        <!-- Will send the informations to the DB with a request like INSERT INTO `messages`
+        VALUES (NULL,"user-name","user-email","user-message",NOW())-->
         <form method="POST" action="form.php">
             <label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo" maxlength="30" />
             <label for="email">E-mail</label><input type="email" name="email" id="email" maxlength="50" />
