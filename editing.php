@@ -1,3 +1,23 @@
+<?php
+
+$connectToDB = mysqli_connect("localhost", "root", "", "goldenbook", 3306);
+mysqli_set_charset($connectToDB, "utf8");
+if (!empty($_POST)) {
+    $idToDelete = $_POST["delete_id"];
+    mysqli_query($connectToDB, "DELETE FROM messages WHERE id='$idToDelete'");
+
+    /*Reset primary key to last id number in DB*/
+    $lastId = mysqli_fetch_all(mysqli_query($connectToDB, "SELECT id FROM messages ORDER BY id DESC LIMIT 1"), MYSQLI_ASSOC);
+    $lastId = $lastId[0]["id"];
+    mysqli_query($connectToDB, "ALTER TABLE messages AUTO_INCREMENT = $lastId");
+}
+$previousMessages = mysqli_query($connectToDB, "SELECT  * FROM `messages` ORDER BY id DESC;");
+
+$nbMessages = mysqli_num_rows($previousMessages);
+
+$messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,25 +54,22 @@
                     x will be the message we want to erase-->
                 </th>
             </tr>
-            <!-- will get the informations from the DB by a request like SELECT * FROM `messages` ORDER BY `id` DESC that will order it from the newer to the older-->
-            <!-- On va boucler sur chaque nouvelle ligne pour chaque message présent dans la base de données plutôt que d'afficher en dur X messages -->
-            <!-- Content rows -->
-            <tr>
-                <th>1</th>
-                <th>Quentin</th>
-                <th>quentin.fayt.p@gmail.com</th>
-                <th>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur qui consequuntur autem molestiae veritatis hic reprehenderit, dolor magnam et esse iure vel quisquam error quas eum sunt pariatur dicta assumenda?</th><!-- First message in index.php -->
-                <th>2021-09-08 11:19:20</th>
-                <th><button>Delete</button></th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>Camille</th>
-                <th>camille.fay@gmail.com</th>
-                <th>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque pariatur, est porro incidunt eligendi quo numquam expedita odio cumque beatae excepturi nesciunt voluptatibus placeat, omnis repellendus aspernatur architecto explicabo!</th> <!-- Second message in index.php -->
-                <th>22021-09-08 11:32:52</th>
-                <th><button>Delete</button></th>
-            </tr>
+            <?php
+            foreach ($messages as $value) {
+            ?>
+                <tr>
+                    <th><?= $value["id"] ?></th>
+                    <th><?= $value["pseudo"] ?></th>
+                    <th><?= $value["email"] ?></th>
+                    <th><?= $value["msg"] ?></th>
+                    <th><?= $value["date_msg"] ?></th>
+                    <th>
+                        <form method="post" class="delete_id"><input type="hidden" value="<?= $value["id"] ?>" name="delete_id" /><button type="submit">Delete</button></form>
+                    </th>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
     </main>
     <footer>
