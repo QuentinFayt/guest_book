@@ -6,7 +6,6 @@ mysqli_set_charset($connectToDB, "utf8");
 $previousMessages = mysqli_query($connectToDB, "SELECT `pseudo`, `msg`, `date_msg` FROM `messages` ORDER BY date_msg DESC;");
 
 $nbMessages = mysqli_num_rows($previousMessages);
-
 $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 ?>
 
@@ -39,23 +38,36 @@ $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
                 <h2>This GoldenBook doesn't have any message yet!</h2>
                 <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
             </section> -->
-        <div class="sndMessage">
-            <a href="form.php">Send a message</a>
-        </div>
-        <section class="userMsg">
-            <h2>Last messages</h2>
-            <?php
-            foreach ($messages as $value) {
-            ?>
-                <article>
-                    <h3><?= $value["pseudo"] ?>'s message:</h3>
-                    <div><?= $value["msg"] ?></div>
-                    <p>written the: <?= $value["date_msg"] ?></p>
-                </article>
-            <?php
-            }
-            ?>
-        </section>
+        <?php
+        if ($nbMessages < 0) {
+        ?>
+            <section class="noMsgYet">
+                <h2>This GoldenBook doesn't have any message yet!</h2>
+                <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
+            </section>";
+        <?php
+        } else {
+        ?>
+            <div class="sndMessage">
+                <a href="form.php">Send a message</a>
+            </div>
+            <section class="userMsg">
+                <h2>Last messages</h2>
+                <?php
+                foreach ($messages as $value) {
+                ?>
+                    <article>
+                        <h3><?= $value["pseudo"] ?>'s message:</h3>
+                        <div><?= $value["msg"] ?></div>
+                        <p>written the: <?= $value["date_msg"] ?></p>
+                    </article>
+                <?php
+                }
+                ?>
+            </section>
+        <?php
+        }
+        ?>
     </main>
     <footer>
         <p>Réalisé par Quentin Fayt, dans le cadre de la formation Web Développeur du CF2M</p>

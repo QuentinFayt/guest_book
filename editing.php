@@ -13,8 +13,6 @@ if (!empty($_POST)) {
 }
 $previousMessages = mysqli_query($connectToDB, "SELECT  * FROM `messages` ORDER BY id DESC;");
 
-$nbMessages = mysqli_num_rows($previousMessages);
-
 $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 ?>
 
