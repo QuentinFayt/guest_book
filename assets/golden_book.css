@@ -168,3 +168,6 @@ label {
 .adminMain th {
   font-size: larger;
 }
+.delete_id {
+  margin: 0;
+}
