@@ -2,9 +2,34 @@
 
 $connectToDB = mysqli_connect("localhost", "root", "", "goldenbook", 3306);
 mysqli_set_charset($connectToDB, "utf8");
+/* Delete data from DB with button*/
+if (!empty($_POST) && isset($_POST["delete_id"])) {
+    $idToDelete = $_POST["delete_id"];
+    mysqli_query($connectToDB, "DELETE FROM messages WHERE id='$idToDelete'");
 
-$previousMessages = mysqli_query($connectToDB, "SELECT `pseudo`, `msg`, `date_msg` FROM `messages` ORDER BY date_msg DESC;");
+    /*Reset primary key to last id number in DB*/
+    $lastId = mysqli_fetch_all(mysqli_query($connectToDB, "SELECT id FROM messages ORDER BY id DESC LIMIT 1"), MYSQLI_ASSOC);
+    $lastId = $lastId[0]["id"];
+    mysqli_query($connectToDB, "ALTER TABLE messages AUTO_INCREMENT = $lastId");
+}
+/*Send new Data to DB*/
+if (!empty($_POST) && isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($_POST["msg"])) {
+    $pseudo = htmlspecialchars(strip_tags(trim($_POST["pseudo"])), ENT_QUOTES);
+    $email = htmlspecialchars(strip_tags(trim($_POST["email"])), ENT_QUOTES);
+    $msg = htmlspecialchars(strip_tags(trim($_POST["msg"])), ENT_QUOTES);
 
+    if (!empty($pseudo) && !empty($email) && !empty($msg)) {
+        mysqli_query($connectToDB, "INSERT INTO messages (pseudo,email,msg) VALUES ('$pseudo','$email','$msg')");
+    }
+}
+/*Check page id*/
+if (isset($_GET['idpage']) && ctype_digit($_GET['idpage'])) {
+    $id = (int) $_GET['idpage'];
+    $id = $id <= 0 || $id > 3 ? 1 : $id;
+} else {
+    $id = 1;
+}
+$previousMessages = mysqli_query($connectToDB, "SELECT  * FROM `messages` ORDER BY id DESC;");
 $nbMessages = mysqli_num_rows($previousMessages);
 $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 ?>
@@ -23,46 +48,21 @@ $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 <body>
     <nav>
         <ul>
-            <Li><a href="index.php">Read last messages</a></Li>
-            <Li><a href="form.php">Send a message</a></Li>
-            <Li><a href="editing.php">Edit messages</a></Li>
+            <li><a href="?idpage=1">Read last messages</a></li>
+            <li><a href="?idpage=2">Send a message</a></li>
+            <li><a href="?idpage=3">Edit messages</a></li>
         </ul>
     </nav>
-    <header>
-        <h1>Read last messages</h1>
-    </header>
-    <main>
-        <?php
-        if ($nbMessages < 0) {
-        ?>
-            <section class="noMsgYet">
-                <h2>This GoldenBook doesn't have any message yet!</h2>
-                <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
-            </section>";
-        <?php
-        } else {
-        ?>
-            <div class="sndMessage">
-                <a href="form.php">Send a message</a>
-            </div>
-            <section class="userMsg">
-                <h2>Last messages</h2>
-                <?php
-                foreach ($messages as $value) {
-                ?>
-                    <article>
-                        <h3><?= $value["pseudo"] ?>'s message:</h3>
-                        <div><?= $value["msg"] ?></div>
-                        <p>written the: <?= $value["date_msg"] ?></p>
-                    </article>
-                <?php
-                }
-                ?>
-            </section>
-        <?php
-        }
-        ?>
-    </main>
+    <?php
+    if ($id === 1) {
+        include("./homepage.php");
+    } elseif ($id === 2) {
+        include("./form.php");
+    } elseif ($id === 3) {
+        include("./editing.php");
+    }
+    ?>
+
     <footer>
         <p>Réalisé par Quentin Fayt, dans le cadre de la formation Web Développeur du CF2M</p>
     </footer>
