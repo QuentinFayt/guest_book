@@ -1,3 +1,9 @@
+<?php
+$url = $_SERVER['REQUEST_URI'];
+if (strpos($url, '/index') !== 0) {
+    header('Location: https://http.cat/404');
+}
+?>
 <header>
     <h1>Read last messages</h1>
 </header>
@@ -13,7 +19,7 @@
     } else {
     ?>
         <div class="sndMessage">
-            <a href="?idpage=form">Send a message</a>
+            <a href="?idpage=form">Send a message</a>:()
         </div>
         <section class="userMsg">
             <h2>Last messages</h2>
