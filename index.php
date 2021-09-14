@@ -3,17 +3,16 @@
 $connectToDB = mysqli_connect("localhost", "root", "", "goldenbook", 3306);
 mysqli_set_charset($connectToDB, "utf8");
 /* Delete data from DB with button*/
-if (!empty($_POST) && isset($_POST["delete_id"])) {
-    $idToDelete = $_POST["delete_id"];
-    mysqli_query($connectToDB, "DELETE FROM messages WHERE id='$idToDelete'");
+if (isset($_POST["delete_id"])) {
+    mysqli_query($connectToDB, "DELETE FROM messages WHERE id= '$_POST[delete_id]'");
 
-    /*Reset primary key to last id number in DB*/
+    /*Reset primary key to last id number in DB
     $lastId = mysqli_fetch_all(mysqli_query($connectToDB, "SELECT id FROM messages ORDER BY id DESC LIMIT 1"), MYSQLI_ASSOC);
     $lastId = $lastId[0]["id"];
-    mysqli_query($connectToDB, "ALTER TABLE messages AUTO_INCREMENT = $lastId");
+    mysqli_query($connectToDB, "ALTER TABLE messages AUTO_INCREMENT = $lastId"); */
 }
 /*Send new Data to DB*/
-if (!empty($_POST) && isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($_POST["msg"])) {
+if (isset($_POST["pseudo"], $_POST["email"], $_POST["msg"])) {
     $pseudo = htmlspecialchars(strip_tags(trim($_POST["pseudo"])), ENT_QUOTES);
     $email = htmlspecialchars(strip_tags(trim($_POST["email"])), ENT_QUOTES);
     $msg = htmlspecialchars(strip_tags(trim($_POST["msg"])), ENT_QUOTES);
@@ -23,11 +22,13 @@ if (!empty($_POST) && isset($_POST["pseudo"]) && isset($_POST["email"]) && isset
     }
 }
 /*Check page id*/
-if (isset($_GET['idpage']) && ctype_digit($_GET['idpage'])) {
-    $id = (int) $_GET['idpage'];
-    $id = $id <= 0 || $id > 3 ? 1 : $id;
-} else {
-    $id = 1;
+$page = "homepage";
+$whiteList = ["homepage", "form", "admin"];
+if (isset($_GET['idpage'])) {
+    $page = $_GET['idpage'];
+    if (!(in_array($page, $whiteList))) {
+        $page = "homepage";
+    }
 }
 $previousMessages = mysqli_query($connectToDB, "SELECT  * FROM `messages` ORDER BY id DESC;");
 $nbMessages = mysqli_num_rows($previousMessages);
@@ -48,17 +49,17 @@ $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 <body>
     <nav>
         <ul>
-            <li><a href="?idpage=1">Read last messages</a></li>
-            <li><a href="?idpage=2">Send a message</a></li>
-            <li><a href="?idpage=3">Edit messages</a></li>
+            <li><a href="?idpage=homepage">Read last messages</a></li>
+            <li><a href="?idpage=form">Send a message</a></li>
+            <li><a href="?idpage=admin">Edit messages</a></li>
         </ul>
     </nav>
     <?php
-    if ($id === 1) {
+    if ($page === "homepage") {
         include("./homepage.php");
-    } elseif ($id === 2) {
+    } elseif ($page === "form") {
         include("./form.php");
-    } elseif ($id === 3) {
+    } elseif ($page === "admin") {
         include("./editing.php");
     }
     ?>
