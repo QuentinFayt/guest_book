@@ -1,13 +1,12 @@
 <?php
-
 $connectToDB = mysqli_connect("localhost", "root", "", "goldenbook", 3306);
 mysqli_set_charset($connectToDB, "utf8");
 /* Delete data from DB with button*/
 if (isset($_POST["delete_id"])) {
     mysqli_query($connectToDB, "DELETE FROM messages WHERE id= '$_POST[delete_id]'");
 
-    /*Reset primary key to last id number in DB
-    $lastId = mysqli_fetch_all(mysqli_query($connectToDB, "SELECT id FROM messages ORDER BY id DESC LIMIT 1"), MYSQLI_ASSOC);
+    /*Reset primary key to last id number in DB*/
+    /*$lastId = mysqli_fetch_all(mysqli_query($connectToDB, "SELECT id FROM messages ORDER BY id DESC LIMIT 1"), MYSQLI_ASSOC);
     $lastId = $lastId[0]["id"];
     mysqli_query($connectToDB, "ALTER TABLE messages AUTO_INCREMENT = $lastId"); */
 }
@@ -21,15 +20,14 @@ if (isset($_POST["pseudo"], $_POST["email"], $_POST["msg"])) {
         mysqli_query($connectToDB, "INSERT INTO messages (pseudo,email,msg) VALUES ('$pseudo','$email','$msg')");
     }
 }
+
 /*Check page id*/
 $page = "homepage";
 $whiteList = ["homepage", "form", "admin"];
-if (isset($_GET['idpage'])) {
-    $page = $_GET['idpage'];
-    if (!(in_array($page, $whiteList))) {
-        $page = "homepage";
-    }
+if (isset($_GET['idpage']) && in_array($_GET['idpage'], $whiteList)) {
+    $page = strip_tags(trim($_GET['idpage']));
 }
+
 $previousMessages = mysqli_query($connectToDB, "SELECT  * FROM `messages` ORDER BY id DESC;");
 $nbMessages = mysqli_num_rows($previousMessages);
 $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
