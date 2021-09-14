@@ -13,7 +13,7 @@
     } else {
     ?>
         <div class="sndMessage">
-            <a href="?idpage=2">Send a message</a>
+            <a href="?idpage=form">Send a message</a>
         </div>
         <section class="userMsg">
             <h2>Last messages</h2>
