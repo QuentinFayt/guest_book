@@ -1,7 +1,7 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
 if (strpos($url, '/index') !== 0) {
-    header('Location: /index.php');
+    header('Location: https://http.cat/404');
 }
 ?>
 <header>
