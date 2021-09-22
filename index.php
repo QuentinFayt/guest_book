@@ -46,11 +46,9 @@ $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
 
 <body>
     <nav>
-        <ul>
-            <li><a href="?idpage=homepage">Read last messages</a></li>
-            <li><a href="?idpage=form">Send a message</a></li>
-            <li><a href="?idpage=admin">Edit messages</a></li>
-        </ul>
+    <?php
+        include("./nav.php");
+    ?>
     </nav>
     <?php
     if ($page === "homepage") {
