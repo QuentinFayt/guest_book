@@ -14,7 +14,7 @@ if (substr($url, 1) === "") {
     if ($nbMessages < 0) {
     ?>
         <section class="noMsgYet">
-            <h2>This GoldenBook doesn't have any message yet!</h2>
+            <h2>This Guest Book doesn't have any message yet!</h2>
             <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
         </section>";
     <?php

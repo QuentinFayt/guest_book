@@ -1,5 +1,5 @@
 <?php
-$connectToDB = mysqli_connect("localhost", "root", "", "goldenbook", 3306);
+$connectToDB = mysqli_connect("localhost", "root", "", "guestbook", 3306);
 mysqli_set_charset($connectToDB, "utf8");
 /* Delete data from DB with button*/
 if (isset($_POST["delete_id"])) {
@@ -40,8 +40,8 @@ $messages = mysqli_fetch_all($previousMessages, MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./assets/golden_book.css" rel="stylesheet">
-    <title>GoldenBook</title>
+    <link href="./assets/guest_book.css" rel="stylesheet">
+    <title>Guest Book</title>
 </head>
 
 <body>
