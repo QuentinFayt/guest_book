@@ -1,17 +1,9 @@
-<?php
-$url = $_SERVER['REQUEST_URI'];
-if (substr($url, 1) === "") {
-    header('Location: /index.php');
-} elseif (strpos($url, '/index') !== 0) {
-    header('Location: https://http.cat/404');
-}
-?>
 <header>
     <h1>Read last messages</h1>
 </header>
 <main>
     <?php
-    if ($nbMessages < 0) {
+    if ($nbMessages === 0) {
     ?>
         <section class="noMsgYet">
             <h2>This Guest Book doesn't have any message yet!</h2>
