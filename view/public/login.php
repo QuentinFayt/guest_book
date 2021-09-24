@@ -1,3 +1,5 @@
+<?php
+?>
 <header>
     <h1>Login</h1>
 </header>

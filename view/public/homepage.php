@@ -1,3 +1,5 @@
+<?php
+?>
 <header>
     <h1>Read last messages</h1>
 </header>
