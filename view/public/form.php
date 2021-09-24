@@ -1,14 +1,8 @@
-<?php
-$url = $_SERVER['REQUEST_URI'];
-if (strpos($url, '/index') !== 0) {
-    header('Location: https://http.cat/404');
-}
-?>
 <header>
     <h1>Send a message</h1>
 </header>
 <main>
-    <form name="messages" method="post" action="index.php">
+    <form name="messages" method="post" action="index.php" class="send_message">
         <div class="name">
             <label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo" maxlength="30" required />
         </div>

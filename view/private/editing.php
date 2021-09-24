@@ -1,9 +1,3 @@
-<?php
-$url = $_SERVER['REQUEST_URI'];
-if (strpos($url, '/index') !== 0) {
-    header('Location: https://http.cat/404');
-}
-?>
 <header>
     <h1>Edit messages</h1>
 </header>
