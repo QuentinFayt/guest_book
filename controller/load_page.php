@@ -6,7 +6,7 @@ if ($page === "homepage") {
     include("../view/public/form.php");
 }
 
-if(isset($_SESSION["admin_pseudo"]) && isset($_SESSION["admin_mdp"])){
+if(isset($_SESSION["IdSession"]) && $_SESSION["IdSession"] == session_id()){
     if ($page === "admin"){
         include("../view/private/editing.php");
     }        
