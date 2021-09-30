@@ -4,6 +4,18 @@
     <h1>Login</h1>
 </header>
 <main>
+    <?php
+    if(isset($wrongLog) && $wrongLog){
+    ?>
+    <div class="wrong" id="wrong">
+        <div onclick="document.getElementById('wrong').style.display='none';" id="cross"></div>
+        <p>Authentification failed :</p>
+        <p>Wrong user login or password!</p>
+    </div>
+    <?php
+    $wrongLog= false;
+    }
+    ?>
     <form name="login" method="post" action="" class="login">
         <div class="login_centering">
             <div class="admin_pseudo">

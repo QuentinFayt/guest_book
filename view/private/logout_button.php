@@ -1,3 +1,3 @@
 <?php
 ?>
-<a href="?logout" class="logout">Logout</a>
+<p><pre class="logout">Welcome <?=$_SESSION["admin_pseudo"]?>! <a href="?logout">Logout</a></pre></p>

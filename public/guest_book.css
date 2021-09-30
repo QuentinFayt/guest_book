@@ -67,10 +67,12 @@ main {
   margin: 0 auto;
 }
 .logout {
-  text-decoration: none;
-  color: blue;
   margin-right: 5em;
   float: right;
+}
+.logout a {
+  text-decoration: none;
+  color: blue;
 }
 /* ========================================= index.php ========================================= */
 /* ========================= Messages ========================= */
@@ -181,6 +183,24 @@ label {
 .login_centering {
   width: 50%;
   margin: 0 auto;
+}
+.wrong {
+  display: block;
+  width: 20em;
+  text-align: center;
+  height: 5.5em;
+  margin: 0 auto;
+  border: 1px solid rgb(200, 0, 0);
+  background-color: rgb(255, 150, 150);
+  border-radius: 10px;
+}
+#cross {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background-image: url("./img/cross.png");
+  float: right;
+  cursor: pointer;
 }
 /* ========================================= editing.php ========================================= */
 /* ========================= table ========================= */

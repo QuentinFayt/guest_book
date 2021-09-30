@@ -1,5 +1,5 @@
 <?php
-$connectToDB = @mysqli_connect("localhost", "root", "", "guestbook", 3306);
+$connectToDB = @mysqli_connect(HOST,USER,PWD,NAME,PORT);
 if(!$connectToDB){
     exit("Connexion problem : ".mysqli_connect_error());
 }

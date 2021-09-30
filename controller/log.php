@@ -8,8 +8,9 @@ if(isset($_POST["admin_pseudo"]) && isset($_POST["admin_mdp"])){
 //check if username exist in DB => count nb of admin where admin_pseudo = userNameLogin if 0, doesn't exist && check if hashed pwd exist in DB
     if(mysqli_fetch_row(mysqli_query($connectToDB,"SELECT count(*) FROM admin WHERE admin_pseudo = '$userNameLogin'"))[0] &&password_verify($userPasswordLogin,mysqli_fetch_row(mysqli_query($connectToDB,"SELECT admin_mdp FROM admin WHERE admin_pseudo = '$userNameLogin'"))[0])){
             $_SESSION["IdSession"] = session_id();
+            $_SESSION["admin_pseudo"] = $_POST["admin_pseudo"];
     }
     else{
-        header('Location:index.php?idpage=login');
+       $wrongLog = true;
     }
 }
