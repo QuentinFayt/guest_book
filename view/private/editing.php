@@ -1,5 +1,5 @@
 <?php
-?>  
+?>
 <header>
     <h1>Edit messages</h1>
 </header>
@@ -18,19 +18,21 @@
             </th>
         </tr>
         <?php
-        foreach ($messages as $value) {
+        if ($nbMessages) {
+            foreach ($messages as $value) {
         ?>
-            <tr>
-                <th><?= $value["id"] ?></th>
-                <th><?= $value["pseudo"] ?></th>
-                <th><?= $value["email"] ?></th>
-                <th><?= $value["msg"] ?></th>
-                <th><?= $value["date_msg"] ?></th>
-                <th>
-                    <form method="post" class="delete_id"><input type="hidden" value="<?= $value["id"] ?>" name="delete_id" /><button type="submit">Delete</button></form>
-                </th>
-            </tr>
+                <tr>
+                    <th><?= $value["id"] ?></th>
+                    <th><?= $value["pseudo"] ?></th>
+                    <th><?= $value["email"] ?></th>
+                    <th><?= $value["msg"] ?></th>
+                    <th><?= $value["date_msg"] ?></th>
+                    <th>
+                        <form method="post" class="delete_id"><input type="hidden" value="<?= $value["id"] ?>" name="delete_id" /><button type="submit">Delete</button></form>
+                    </th>
+                </tr>
         <?php
+            }
         }
         ?>
     </table>

@@ -5,12 +5,12 @@
 </header>
 <main>
     <?php
-    if ($nbMessages === 0) {
+    if (!$nbMessages) {
     ?>
         <section class="noMsgYet">
             <h2>This Guest Book doesn't have any message yet!</h2>
             <p>But please, be our guest and go to the "send a message" page to test it! Then come back here to read it :)</p>
-        </section>";
+        </section>
     <?php
     } else {
     ?>
